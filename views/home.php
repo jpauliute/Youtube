@@ -1,5 +1,5 @@
 <?php
-require_once './related/pagination.php';
+require_once './pagination.php';
 ?>
 
 <div class="container">

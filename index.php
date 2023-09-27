@@ -3,8 +3,8 @@ session_start();
 
 require_once('pdo.php');
 require_once('config.php');
-require_once('related/sql.php');
-require_once('functionality/functions.php');
+require_once('sql.php');
+require_once('functions.php');
 
 if (isUser) {
     $data = getData();

@@ -1,6 +1,6 @@
 <?php
-require_once('related/sql.php');
-require_once('functionality/functions.php');
+require_once('sql.php');
+require_once('functions.php');
 
 $pepper = "Ec9xKCX8";
 

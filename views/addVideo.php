@@ -1,5 +1,5 @@
 <?php
-include_once './actions/addVideo.php';
+include_once './addVideo.php';
 
 list($err, $success) = AddVideoAction::init();
 

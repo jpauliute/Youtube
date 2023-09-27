@@ -1,5 +1,5 @@
 <?php
-require_once './actions/login.php';
+require_once './login.php';
 
 userCheck('isUser');
 
