@@ -14,7 +14,8 @@ $videos = S::fetchAll(
 ?>
 
 <div class="row mt-5">
-    <div class="col col-8">
+    <div class="col col-10">
+        <a href="?pg=" class="btn btn-danger mb-4">Back to list</a>
         <iframe src="https://www.youtube.com/embed/<?= $vid ?>?autoplay=0"></iframe>
         <h4 class="d-inline">
             <?= $video['name'] ?>
@@ -31,22 +32,5 @@ $videos = S::fetchAll(
             <?= $video['description'] ?>
         </p>
     </div>
-    <div class="col col-4">
-        <h3 class="mb-5">Other
-            <?= $categoryName ?> videos
-        </h3>
-        <?php
-        unset($video);
 
-        if ($videos) {
-            foreach ($videos as $video) {
-                showVideo($video);
-            }
-        } else {
-            echo "<div class='display-6 w-100'>No more videos in this category have been found.</div>";
-        }
-
-        S::update('videos', 'WHERE vid=:vid', 'views=views+1', [':vid' => $vid], []);
-        ?>
-    </div>
 </div>

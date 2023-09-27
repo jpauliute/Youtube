@@ -50,7 +50,7 @@ if (isUser) {
                         </form>
                     </div>
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="?pg=">Home</a>
+                    <a class = 'nav-item nav-link' href = '?pg='><i class = 'bi bi-house'></i></a>
                         <?php if (!isUser): ?>
                             <a class="nav-item nav-link" href="?pg=login">Sign-in</a>
                             <a class="nav-item nav-link" href="?pg=registration">Become a member</a>
@@ -74,23 +74,23 @@ if (isUser) {
 
             switch ($pg) {
                 case '':
-                    include './views/home.php';
+                    include './actionHome.php';
                     break;
                 case 'registration':
-                    include './views/registration.php';
+                    include './actionRegistration.php';
                     break;
                 case 'login':
-                    include './views/login.php';
+                    include './actionLogin.php';
                     break;
                 case 'addVideo':
-                    include './views/addVideo.php';
+                    include './actionAddVideo.php';
                     break;
                 case 'logout':
                     session_destroy();
                     header('Location: ?pg=');
                     break;
                 case 'video':
-                    include './views/video.php';
+                    include './actionVideo.php';
                     break;
             }
 

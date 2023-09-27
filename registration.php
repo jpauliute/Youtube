@@ -11,24 +11,24 @@ class RegistrationAction
             $pass2 = $_POST['pass2'];
 
             if (!self::isValidFieldsLength($nick, $pass)) {
-                $err = "Nickname must be 3-30 characters long, and password must be 8-30 characters long.";
+                $err = "Nickname: 3-30 characters, password: 8-30 characters.";
             } elseif (self::isValidNickFormat($nick)) {
-                $err = "Nickname can't contain any special characters. Only numbers and letters.";
+                $err = "Nickname only numbers, letters.";
             } elseif (!self::isValidPassFormat($pass)) {
-                $err = "For security purposes, the password field must contain at least one uppercase character, one number, and one special character.";
+                $err = "Password  must contain one uppercase character, one number, and one special character.";
             } elseif (!($pass === $pass2)) {
                 $err = "Passwords do not match.";
             } elseif (userExists($nick)) {
-                $err = "A user with this nickname already exists. Please choose a different nickname.";
+                $err = "A user with this nickname already exists.";
             } elseif (self::ipExists()) {
-                $err = "A user with this IP address is already in our system. You can only have one user.";
+                $err = "A user with this IP address already exists.";
             } else {
                 $salt = randomString(8);
                 $hashedPass = sha1($pepper . $pass . $salt);
 
                 self::saveUser($nick, $hashedPass, $salt);
 
-                $success = "Your registration is successfull. Now you can login.";
+                $success = "Registration successfull.";
             }
 
             return [isset($err) ? $err : '', isset($success) ? $success : ''];
